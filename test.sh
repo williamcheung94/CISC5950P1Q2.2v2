@@ -7,7 +7,7 @@ out=None
 for i in {1..10}
 do
 echo $i
-cat 'D:/SkyDrive/Documents/Università/Fordham/Courses/BigData/Works/Project1/NBA/shot_logs.csv' | python mapper1.py "$name" $i "$out"  | sort -k1,1 | python reducer1.py > output.txt
+cat '/CISC5950P1Q2.2v2/shot_logs.csv' | python mapper1.py "$name" $i "$out"  | sort -k1,1 | python reducer1.py > output.txt
 decision=$(tail -c 3 output.txt)
 out=$(cat output.txt)
 if (test $decision -eq 1); then 
@@ -19,6 +19,6 @@ echo $out
 done
 
 echo 'final zone and correspondent hit rate:'
-cat 'D:/SkyDrive/Documents/Università/Fordham/Courses/BigData/Works/Project1/NBA/shot_logs.csv' | python mapper2.py "$name" "$out" | sort -k1,1 | python reducer2.py
+cat '/CISC5950P1Q2.2v2/shot_logs.csv' | python mapper2.py "$name" "$out" | sort -k1,1 | python reducer2.py
 
 IFS=$IFSBAK
